@@ -94,7 +94,7 @@ const AppPreviewCarousel = () => {
       className="relative rounded-3xl overflow-hidden shadow-2xl"
       style={{ backgroundColor: colors.sand }}
     >
-      <div className="aspect-[4/5] p-8 flex flex-col justify-between">
+      <div className="p-6 flex flex-col gap-4">
         {/* Main Card - Animated */}
         <div 
           className="rounded-2xl p-6 shadow-lg transition-all duration-500"
