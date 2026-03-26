@@ -349,27 +349,6 @@ const HomePage = ({ setCurrentPage }) => {
     }
   ];
 
-  const testimonials = [
-    {
-      quote: "The Formula transformed how I approach each day. I went from feeling overwhelmed to feeling like a professional educator.",
-      author: "Sarah M.",
-      role: "Professional Nanny, Austin TX",
-      rating: 5
-    },
-    {
-      quote: "As working parents, we finally feel connected to our daughter's daily learning. The communication tools are incredible.",
-      author: "The Rodriguez Family",
-      role: "Bay Area, CA",
-      rating: 5
-    },
-    {
-      quote: "I've been a nanny for 12 years. I wish I'd had this toolkit from day one. It's a game-changer.",
-      author: "Michelle K.",
-      role: "Career Nanny, NYC",
-      rating: 5
-    }
-  ];
-
   const howItWorks = [
     {
       step: "01",
@@ -592,46 +571,6 @@ const HomePage = ({ setCurrentPage }) => {
                   <p className="text-lg leading-relaxed" style={{ color: colors.bark }}>
                     {item.description}
                   </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials */}
-      <section className="py-24" style={{ backgroundColor: colors.wood }}>
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 
-              className="text-4xl md:text-5xl font-semibold mb-6"
-              style={{ color: colors.cream, fontFamily: "'Playfair Display', serif" }}
-            >
-              Loved by caregivers <em className="italic">and</em> families
-            </h2>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, i) => (
-              <div 
-                key={i}
-                className="p-8 rounded-3xl"
-                style={{ backgroundColor: colors.bark }}
-              >
-                <div className="flex gap-1 mb-6">
-                  {[...Array(testimonial.rating)].map((_, j) => (
-                    <Star key={j} className="w-5 h-5 fill-current" style={{ color: colors.terra }} />
-                  ))}
-                </div>
-                <p 
-                  className="text-lg leading-relaxed mb-6 italic"
-                  style={{ color: colors.cream }}
-                >
-                  "{testimonial.quote}"
-                </p>
-                <div>
-                  <p className="font-semibold" style={{ color: colors.white }}>{testimonial.author}</p>
-                  <p className="text-sm" style={{ color: colors.dune }}>{testimonial.role}</p>
                 </div>
               </div>
             ))}
