@@ -441,12 +441,6 @@ const HomePage = ({ setCurrentPage }) => {
                   ))}
                 </div>
                 <div>
-                  <div className="flex items-center gap-1">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 fill-current" style={{ color: colors.terra }} />
-                    ))}
-                  </div>
-                  <p className="text-sm" style={{ color: colors.bark }}>Trusted by 500+ caregivers</p>
                 </div>
               </div>
             </div>
