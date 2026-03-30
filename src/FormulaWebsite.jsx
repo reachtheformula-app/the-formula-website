@@ -428,23 +428,6 @@ const HomePage = ({ setCurrentPage }) => {
                 </button>
               </div>
 
-              <div className="flex items-center gap-8 pt-4">
-                <div className="flex -space-x-3">
-                  {[colors.terra, colors.bark, colors.dune, colors.wood].map((color, i) => (
-                    <div 
-                      key={i}
-                      className="w-10 h-10 rounded-full border-2 flex items-center justify-center text-white text-sm font-bold"
-                      style={{ backgroundColor: color, borderColor: colors.cream }}
-                    >
-                      {['S', 'M', 'K', 'J'][i]}
-                    </div>
-                  ))}
-                </div>
-                <div>
-                </div>
-              </div>
-            </div>
-
             {/* Hero Image/Illustration - Rolling App Preview */}
             <div className="relative">
               <AppPreviewCarousel />
