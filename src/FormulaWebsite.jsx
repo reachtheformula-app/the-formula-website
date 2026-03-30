@@ -452,6 +452,7 @@ const HomePage = ({ setCurrentPage }) => {
             </div>
           </div>
         </div>
+      </div>
       </section>
 
       {/* Value Proposition Strip */}
