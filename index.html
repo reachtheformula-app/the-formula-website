@@ -24,41 +24,41 @@
   </head>
 <body>
   <!-- Hidden forms for Netlify detection -->
-  <form name="have-a-caregiver" netlify netlify-honeypot="bot-field" hidden>
-    <input type="text" name="parentName" />
-    <input type="email" name="email" />
-    <input type="tel" name="phone" />
-    <input type="text" name="childrenAges" />
-    <input type="text" name="nannyName" />
-    <input type="email" name="nannyEmail" />
-    <input type="text" name="bot-field" />
-  </form>
-  <form name="looking-for-caregiver" netlify netlify-honeypot="bot-field" hidden>
-    <input type="text" name="parentName" />
-    <input type="email" name="email" />
-    <input type="tel" name="phone" />
-    <input type="text" name="location" />
-    <input type="text" name="childrenAges" />
-    <input type="text" name="careType" />
-    <input type="text" name="schedule" />
-    <input type="text" name="startDate" />
-    <textarea name="aboutFamily"></textarea>
-    <textarea name="whatLookingFor"></textarea>
-    <input type="text" name="bot-field" />
-  </form>
-    <form name="caregiver-application" netlify netlify-honeypot="bot-field" hidden>
-    <input type="text" name="firstName" />
-    <input type="text" name="lastName" />
-    <input type="email" name="email" />
-    <input type="tel" name="phone" />
-    <input type="text" name="location" />
-    <input type="text" name="experience" />
-    <input type="text" name="certifications" />
-    <input type="text" name="availability" />
-    <textarea name="aboutYou"></textarea>
-    <textarea name="whyFormula"></textarea>
-    <input type="text" name="bot-field" />
-  </form>
+<form name="have-a-caregiver" method="POST" netlify netlify-honeypot="bot-field" hidden>
+  <input type="text" name="parentName" />
+  <input type="email" name="email" />
+  <input type="tel" name="phone" />
+  <input type="text" name="childrenAges" />
+  <input type="text" name="nannyName" />
+  <input type="email" name="nannyEmail" />
+  <input type="text" name="bot-field" />
+</form>
+<form name="looking-for-caregiver" method="POST" netlify netlify-honeypot="bot-field" hidden>
+  <input type="text" name="parentName" />
+  <input type="email" name="email" />
+  <input type="tel" name="phone" />
+  <input type="text" name="location" />
+  <input type="text" name="childrenAges" />
+  <input type="text" name="careType" />
+  <input type="text" name="schedule" />
+  <input type="text" name="startDate" />
+  <textarea name="aboutFamily"></textarea>
+  <textarea name="whatLookingFor"></textarea>
+  <input type="text" name="bot-field" />
+</form>
+<form name="caregiver-application" method="POST" netlify netlify-honeypot="bot-field" hidden>
+  <input type="text" name="firstName" />
+  <input type="text" name="lastName" />
+  <input type="email" name="email" />
+  <input type="tel" name="phone" />
+  <input type="text" name="location" />
+  <input type="text" name="experience" />
+  <input type="text" name="certifications" />
+  <input type="text" name="availability" />
+  <textarea name="aboutYou"></textarea>
+  <textarea name="whyFormula"></textarea>
+  <input type="text" name="bot-field" />
+</form>
 
   <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
