@@ -817,14 +817,7 @@ const encode = (data) =>
               >
                 <input type="hidden" name="form-name" value="have-a-caregiver" />
                 <input type="hidden" name="bot-field" />
-```
 
----
-
-**Form 2 — "I'm looking for a caregiver" → Line 946**
-```
-946:               <form onSubmit={handleSubmit} className="space-y-6">
-                <div>
                   <h3 
                     className="text-lg font-semibold mb-4"
                     style={{ color: colors.wood, fontFamily: "'Playfair Display', serif" }}
