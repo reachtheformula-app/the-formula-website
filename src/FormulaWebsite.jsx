@@ -427,6 +427,7 @@ const HomePage = ({ setCurrentPage }) => {
                   <ArrowRight className="w-5 h-5" />
                 </button>
               </div>
+            </div>
 
             {/* Hero Image/Illustration - Rolling App Preview */}
             <div className="relative">
