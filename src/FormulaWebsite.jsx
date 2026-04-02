@@ -808,7 +808,22 @@ const encode = (data) =>
               className="rounded-3xl p-8 md:p-10"
               style={{ backgroundColor: colors.white }}
             >
-              <form onSubmit={handleSubmit} className="space-y-6">
+             <form
+                onSubmit={handleSubmit}
+                className="space-y-6"
+                data-netlify="true"
+                data-netlify-honeypot="bot-field"
+                name="have-a-caregiver"
+              >
+                <input type="hidden" name="form-name" value="have-a-caregiver" />
+                <input type="hidden" name="bot-field" />
+```
+
+---
+
+**Form 2 — "I'm looking for a caregiver" → Line 946**
+```
+946:               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
                   <h3 
                     className="text-lg font-semibold mb-4"
@@ -943,7 +958,15 @@ const encode = (data) =>
               className="rounded-3xl p-8 md:p-10"
               style={{ backgroundColor: colors.white }}
             >
-              <form onSubmit={handleSubmit} className="space-y-6">
+            <form
+                onSubmit={handleSubmit}
+                className="space-y-6"
+                data-netlify="true"
+                data-netlify-honeypot="bot-field"
+                name="looking-for-caregiver"
+              >
+                <input type="hidden" name="form-name" value="looking-for-caregiver" />
+                <input type="hidden" name="bot-field" />
                 <div>
                   <h3 
                     className="text-lg font-semibold mb-4"
