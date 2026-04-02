@@ -615,9 +615,25 @@ const FamiliesPage = ({ setCurrentPage }) => {
   });
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e) => {
+const encode = (data) =>
+    Object.keys(data)
+      .map(k => encodeURIComponent(k) + '=' + encodeURIComponent(data[k]))
+      .join('&');
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitted(true);
+    const formName = path === 'have' ? 'have-a-caregiver' : 'looking-for-caregiver';
+    try {
+      await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: encode({ 'form-name': formName, ...formData }),
+      });
+      setSubmitted(true);
+    } catch (err) {
+      console.error('Form submission error:', err);
+      alert('Something went wrong. Please try again.');
+    }
   };
 
   if (submitted) {
