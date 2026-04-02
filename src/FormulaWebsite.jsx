@@ -1662,9 +1662,24 @@ const ApplyPage = ({ setCurrentPage }) => {
   });
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e) => {
+const encode = (data) =>
+    Object.keys(data)
+      .map(k => encodeURIComponent(k) + '=' + encodeURIComponent(data[k]))
+      .join('&');
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitted(true);
+    try {
+      await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: encode({ 'form-name': 'caregiver-application', ...formData }),
+      });
+      setSubmitted(true);
+    } catch (err) {
+      console.error('Form submission error:', err);
+      alert('Something went wrong. Please try again.');
+    }
   };
 
   if (submitted) {
@@ -1719,7 +1734,15 @@ const ApplyPage = ({ setCurrentPage }) => {
             className="rounded-3xl p-8 md:p-12"
             style={{ backgroundColor: colors.white }}
           >
-            <form onSubmit={handleSubmit} className="space-y-8">
+           <form
+  onSubmit={handleSubmit}
+  className="space-y-8"
+  data-netlify="true"
+  data-netlify-honeypot="bot-field"
+  name="caregiver-application"
+>
+  <input type="hidden" name="form-name" value="caregiver-application" />
+  <input type="hidden" name="bot-field" />
               {/* Personal Info */}
               <div>
                 <h3 
