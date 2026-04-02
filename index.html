@@ -22,8 +22,32 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   </head>
-  <body>
-    <div id="root"></div>
+<body>
+  <!-- Hidden forms for Netlify detection -->
+  <form name="have-a-caregiver" netlify netlify-honeypot="bot-field" hidden>
+    <input type="text" name="parentName" />
+    <input type="email" name="email" />
+    <input type="tel" name="phone" />
+    <input type="text" name="childrenAges" />
+    <input type="text" name="nannyName" />
+    <input type="email" name="nannyEmail" />
+    <input type="text" name="bot-field" />
+  </form>
+  <form name="looking-for-caregiver" netlify netlify-honeypot="bot-field" hidden>
+    <input type="text" name="parentName" />
+    <input type="email" name="email" />
+    <input type="tel" name="phone" />
+    <input type="text" name="location" />
+    <input type="text" name="childrenAges" />
+    <input type="text" name="careType" />
+    <input type="text" name="schedule" />
+    <input type="text" name="startDate" />
+    <textarea name="aboutFamily"></textarea>
+    <textarea name="whatLookingFor"></textarea>
+    <input type="text" name="bot-field" />
+  </form>
+
+  <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
