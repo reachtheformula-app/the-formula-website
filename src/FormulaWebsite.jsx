@@ -596,9 +596,8 @@ const HomePage = ({ setCurrentPage }) => {
   );
 };
 
-// Families Page
 const FamiliesPage = ({ setCurrentPage }) => {
-  const [path, setPath] = useState(null); // 'have' or 'find'
+  const [path, setPath] = useState(null);
   const [formData, setFormData] = useState({
     parentName: '',
     email: '',
@@ -615,7 +614,7 @@ const FamiliesPage = ({ setCurrentPage }) => {
   });
   const [submitted, setSubmitted] = useState(false);
 
-const encode = (data) =>
+  const encode = (data) =>
     Object.keys(data)
       .map(k => encodeURIComponent(k) + '=' + encodeURIComponent(data[k]))
       .join('&');
@@ -640,25 +639,25 @@ const encode = (data) =>
     return (
       <div style={{ backgroundColor: colors.cream }} className="min-h-screen flex items-center justify-center">
         <div className="max-w-lg mx-auto px-6 text-center">
-          <div 
+          <div
             className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-8"
             style={{ backgroundColor: colors.terra }}
           >
             <Check className="w-10 h-10 text-white" />
           </div>
-          <h1 
+          <h1
             className="text-4xl font-semibold mb-6"
             style={{ color: colors.charcoal, fontFamily: "'Playfair Display', serif" }}
           >
             {path === 'have' ? "You're All Set!" : "Request Received!"}
           </h1>
           <p className="text-lg mb-8" style={{ color: colors.bark }}>
-            {path === 'have' 
+            {path === 'have'
               ? "We'll send your caregiver an invitation to join The Formula. Once they're set up, you'll start receiving updates."
               : "We'll review your family's needs and be in touch within 2-3 business days to discuss finding your perfect caregiver match."
             }
           </p>
-          <button 
+          <button
             onClick={() => setCurrentPage('home')}
             className="px-8 py-4 rounded-full text-lg font-semibold"
             style={{ backgroundColor: colors.terra, color: colors.white }}
@@ -670,14 +669,13 @@ const encode = (data) =>
     );
   }
 
-  // Path selection screen
   if (!path) {
     return (
       <div style={{ backgroundColor: colors.cream }}>
         <section className="pt-32 pb-20 min-h-screen">
           <div className="max-w-4xl mx-auto px-6">
             <div className="text-center mb-16">
-              <h1 
+              <h1
                 className="text-5xl md:text-6xl font-semibold mb-6"
                 style={{ color: colors.charcoal, fontFamily: "'Playfair Display', serif" }}
               >
@@ -687,21 +685,19 @@ const encode = (data) =>
                 Whether you have a caregiver or need to find one, The Formula keeps you connected to your child's growth.
               </p>
             </div>
-
             <div className="grid md:grid-cols-2 gap-8">
-              {/* I Have a Caregiver */}
               <button
                 onClick={() => setPath('have')}
                 className="text-left p-8 rounded-3xl transition-all hover:shadow-xl border-2 group"
                 style={{ backgroundColor: colors.white, borderColor: colors.dune }}
               >
-                <div 
+                <div
                   className="w-16 h-16 rounded-2xl flex items-center justify-center mb-6 transition-transform group-hover:scale-105"
                   style={{ backgroundColor: colors.sand }}
                 >
                   <Heart className="w-8 h-8" style={{ color: colors.terra }} />
                 </div>
-                <h2 
+                <h2
                   className="text-2xl font-semibold mb-4"
                   style={{ color: colors.wood, fontFamily: "'Playfair Display', serif" }}
                 >
@@ -711,38 +707,30 @@ const encode = (data) =>
                   Give your nanny or au pair access to The Formula's curriculum and tools—and start receiving detailed daily updates.
                 </p>
                 <ul className="space-y-2 mb-6">
-                  {[
-                    "Gift your caregiver a subscription",
-                    "Receive daily activity updates",
-                    "Track milestones and development"
-                  ].map((item, i) => (
+                  {["Gift your caregiver a subscription", "Receive daily activity updates", "Track milestones and development"].map((item, i) => (
                     <li key={i} className="flex items-center gap-2 text-sm" style={{ color: colors.bark }}>
                       <Check className="w-4 h-4" style={{ color: colors.terra }} />
                       {item}
                     </li>
                   ))}
                 </ul>
-                <div 
-                  className="flex items-center gap-2 font-semibold"
-                  style={{ color: colors.terra }}
-                >
+                <div className="flex items-center gap-2 font-semibold" style={{ color: colors.terra }}>
                   Get started <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                 </div>
               </button>
 
-              {/* I'm Looking for a Caregiver */}
               <button
                 onClick={() => setPath('find')}
                 className="text-left p-8 rounded-3xl transition-all hover:shadow-xl border-2 group"
                 style={{ backgroundColor: colors.white, borderColor: colors.dune }}
               >
-                <div 
+                <div
                   className="w-16 h-16 rounded-2xl flex items-center justify-center mb-6 transition-transform group-hover:scale-105"
                   style={{ backgroundColor: colors.terra }}
                 >
                   <Users className="w-8 h-8 text-white" />
                 </div>
-                <h2 
+                <h2
                   className="text-2xl font-semibold mb-4"
                   style={{ color: colors.wood, fontFamily: "'Playfair Display', serif" }}
                 >
@@ -752,21 +740,14 @@ const encode = (data) =>
                   Get matched with a Formula-Certified caregiver—vetted professionals trained in our curriculum and tools.
                 </p>
                 <ul className="space-y-2 mb-6">
-                  {[
-                    "Pre-vetted, qualified caregivers",
-                    "Trained in structured, educational care",
-                    "Built-in communication tools"
-                  ].map((item, i) => (
+                  {["Pre-vetted, qualified caregivers", "Trained in structured, educational care", "Built-in communication tools"].map((item, i) => (
                     <li key={i} className="flex items-center gap-2 text-sm" style={{ color: colors.bark }}>
                       <Check className="w-4 h-4" style={{ color: colors.terra }} />
                       {item}
                     </li>
                   ))}
                 </ul>
-                <div 
-                  className="flex items-center gap-2 font-semibold"
-                  style={{ color: colors.terra }}
-                >
+                <div className="flex items-center gap-2 font-semibold" style={{ color: colors.terra }}>
                   Find a caregiver <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                 </div>
               </button>
@@ -778,22 +759,20 @@ const encode = (data) =>
     );
   }
 
-  // Form for "I have a caregiver"
   if (path === 'have') {
     return (
       <div style={{ backgroundColor: colors.cream }}>
         <section className="pt-32 pb-20">
           <div className="max-w-2xl mx-auto px-6">
-            <button 
+            <button
               onClick={() => setPath(null)}
               className="flex items-center gap-2 mb-8 text-sm font-medium"
               style={{ color: colors.bark }}
             >
-              ← Back
+              ← Back
             </button>
-            
             <div className="text-center mb-12">
-              <h1 
+              <h1
                 className="text-4xl md:text-5xl font-semibold mb-4"
                 style={{ color: colors.charcoal, fontFamily: "'Playfair Display', serif" }}
               >
@@ -803,12 +782,8 @@ const encode = (data) =>
                 We'll send them an invitation to join The Formula with a gifted subscription.
               </p>
             </div>
-
-            <div 
-              className="rounded-3xl p-8 md:p-10"
-              style={{ backgroundColor: colors.white }}
-            >
-             <form
+            <div className="rounded-3xl p-8 md:p-10" style={{ backgroundColor: colors.white }}>
+              <form
                 onSubmit={handleSubmit}
                 className="space-y-6"
                 data-netlify="true"
@@ -817,8 +792,8 @@ const encode = (data) =>
               >
                 <input type="hidden" name="form-name" value="have-a-caregiver" />
                 <input type="hidden" name="bot-field" />
-
-                  <h3 
+                <div>
+                  <h3
                     className="text-lg font-semibold mb-4"
                     style={{ color: colors.wood, fontFamily: "'Playfair Display', serif" }}
                   >
@@ -826,9 +801,7 @@ const encode = (data) =>
                   </h3>
                   <div className="grid md:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-sm font-medium mb-2" style={{ color: colors.bark }}>
-                        Your Name *
-                      </label>
+                      <label className="block text-sm font-medium mb-2" style={{ color: colors.bark }}>Your Name *</label>
                       <input
                         type="text"
                         required
@@ -839,9 +812,7 @@ const encode = (data) =>
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium mb-2" style={{ color: colors.bark }}>
-                        Your Email *
-                      </label>
+                      <label className="block text-sm font-medium mb-2" style={{ color: colors.bark }}>Your Email *</label>
                       <input
                         type="email"
                         required
@@ -853,9 +824,8 @@ const encode = (data) =>
                     </div>
                   </div>
                 </div>
-
                 <div>
-                  <h3 
+                  <h3
                     className="text-lg font-semibold mb-4"
                     style={{ color: colors.wood, fontFamily: "'Playfair Display', serif" }}
                   >
@@ -863,9 +833,7 @@ const encode = (data) =>
                   </h3>
                   <div className="grid md:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-sm font-medium mb-2" style={{ color: colors.bark }}>
-                        Caregiver's Name *
-                      </label>
+                      <label className="block text-sm font-medium mb-2" style={{ color: colors.bark }}>Caregiver's Name *</label>
                       <input
                         type="text"
                         required
@@ -876,9 +844,7 @@ const encode = (data) =>
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium mb-2" style={{ color: colors.bark }}>
-                        Caregiver's Email *
-                      </label>
+                      <label className="block text-sm font-medium mb-2" style={{ color: colors.bark }}>Caregiver's Email *</label>
                       <input
                         type="email"
                         required
@@ -890,11 +856,8 @@ const encode = (data) =>
                     </div>
                   </div>
                 </div>
-
                 <div>
-                  <label className="block text-sm font-medium mb-2" style={{ color: colors.bark }}>
-                    Children's Ages
-                  </label>
+                  <label className="block text-sm font-medium mb-2" style={{ color: colors.bark }}>Children's Ages</label>
                   <input
                     type="text"
                     value={formData.childrenAges}
@@ -904,8 +867,7 @@ const encode = (data) =>
                     style={{ borderColor: colors.dune, color: colors.wood }}
                   />
                 </div>
-
-                <button 
+                <button
                   type="submit"
                   className="w-full py-4 rounded-full text-lg font-semibold transition-all hover:shadow-xl"
                   style={{ backgroundColor: colors.terra, color: colors.white }}
@@ -921,22 +883,20 @@ const encode = (data) =>
     );
   }
 
-  // Form for "I'm looking for a caregiver"
   if (path === 'find') {
     return (
       <div style={{ backgroundColor: colors.cream }}>
         <section className="pt-32 pb-20">
           <div className="max-w-2xl mx-auto px-6">
-            <button 
+            <button
               onClick={() => setPath(null)}
               className="flex items-center gap-2 mb-8 text-sm font-medium"
               style={{ color: colors.bark }}
             >
-              ← Back
+              ← Back
             </button>
-            
             <div className="text-center mb-12">
-              <h1 
+              <h1
                 className="text-4xl md:text-5xl font-semibold mb-4"
                 style={{ color: colors.charcoal, fontFamily: "'Playfair Display', serif" }}
               >
@@ -946,12 +906,8 @@ const encode = (data) =>
                 Tell us about your family and we'll match you with a Formula-Certified professional.
               </p>
             </div>
-
-            <div 
-              className="rounded-3xl p-8 md:p-10"
-              style={{ backgroundColor: colors.white }}
-            >
-            <form
+            <div className="rounded-3xl p-8 md:p-10" style={{ backgroundColor: colors.white }}>
+              <form
                 onSubmit={handleSubmit}
                 className="space-y-6"
                 data-netlify="true"
@@ -961,7 +917,7 @@ const encode = (data) =>
                 <input type="hidden" name="form-name" value="looking-for-caregiver" />
                 <input type="hidden" name="bot-field" />
                 <div>
-                  <h3 
+                  <h3
                     className="text-lg font-semibold mb-4"
                     style={{ color: colors.wood, fontFamily: "'Playfair Display', serif" }}
                   >
@@ -970,9 +926,7 @@ const encode = (data) =>
                   <div className="space-y-4">
                     <div className="grid md:grid-cols-2 gap-4">
                       <div>
-                        <label className="block text-sm font-medium mb-2" style={{ color: colors.bark }}>
-                          Your Name *
-                        </label>
+                        <label className="block text-sm font-medium mb-2" style={{ color: colors.bark }}>Your Name *</label>
                         <input
                           type="text"
                           required
@@ -983,9 +937,7 @@ const encode = (data) =>
                         />
                       </div>
                       <div>
-                        <label className="block text-sm font-medium mb-2" style={{ color: colors.bark }}>
-                          Email *
-                        </label>
+                        <label className="block text-sm font-medium mb-2" style={{ color: colors.bark }}>Email *</label>
                         <input
                           type="email"
                           required
@@ -998,9 +950,7 @@ const encode = (data) =>
                     </div>
                     <div className="grid md:grid-cols-2 gap-4">
                       <div>
-                        <label className="block text-sm font-medium mb-2" style={{ color: colors.bark }}>
-                          Phone *
-                        </label>
+                        <label className="block text-sm font-medium mb-2" style={{ color: colors.bark }}>Phone *</label>
                         <input
                           type="tel"
                           required
@@ -1011,9 +961,7 @@ const encode = (data) =>
                         />
                       </div>
                       <div>
-                        <label className="block text-sm font-medium mb-2" style={{ color: colors.bark }}>
-                          Location (City, State) *
-                        </label>
+                        <label className="block text-sm font-medium mb-2" style={{ color: colors.bark }}>Location (City, State) *</label>
                         <input
                           type="text"
                           required
@@ -1026,9 +974,8 @@ const encode = (data) =>
                     </div>
                   </div>
                 </div>
-
                 <div>
-                  <h3 
+                  <h3
                     className="text-lg font-semibold mb-4"
                     style={{ color: colors.wood, fontFamily: "'Playfair Display', serif" }}
                   >
@@ -1036,9 +983,7 @@ const encode = (data) =>
                   </h3>
                   <div className="space-y-4">
                     <div>
-                      <label className="block text-sm font-medium mb-2" style={{ color: colors.bark }}>
-                        Children's Ages *
-                      </label>
+                      <label className="block text-sm font-medium mb-2" style={{ color: colors.bark }}>Children's Ages *</label>
                       <input
                         type="text"
                         required
@@ -1051,9 +996,7 @@ const encode = (data) =>
                     </div>
                     <div className="grid md:grid-cols-2 gap-4">
                       <div>
-                        <label className="block text-sm font-medium mb-2" style={{ color: colors.bark }}>
-                          Type of Care *
-                        </label>
+                        <label className="block text-sm font-medium mb-2" style={{ color: colors.bark }}>Type of Care *</label>
                         <select
                           required
                           value={formData.careType}
@@ -1069,9 +1012,7 @@ const encode = (data) =>
                         </select>
                       </div>
                       <div>
-                        <label className="block text-sm font-medium mb-2" style={{ color: colors.bark }}>
-                          Ideal Start Date
-                        </label>
+                        <label className="block text-sm font-medium mb-2" style={{ color: colors.bark }}>Ideal Start Date</label>
                         <input
                           type="text"
                           value={formData.startDate}
@@ -1083,9 +1024,7 @@ const encode = (data) =>
                       </div>
                     </div>
                     <div>
-                      <label className="block text-sm font-medium mb-2" style={{ color: colors.bark }}>
-                        Schedule Needed
-                      </label>
+                      <label className="block text-sm font-medium mb-2" style={{ color: colors.bark }}>Schedule Needed</label>
                       <input
                         type="text"
                         value={formData.schedule}
@@ -1097,9 +1036,8 @@ const encode = (data) =>
                     </div>
                   </div>
                 </div>
-
                 <div>
-                  <h3 
+                  <h3
                     className="text-lg font-semibold mb-4"
                     style={{ color: colors.wood, fontFamily: "'Playfair Display', serif" }}
                   >
@@ -1107,9 +1045,7 @@ const encode = (data) =>
                   </h3>
                   <div className="space-y-4">
                     <div>
-                      <label className="block text-sm font-medium mb-2" style={{ color: colors.bark }}>
-                        About your family
-                      </label>
+                      <label className="block text-sm font-medium mb-2" style={{ color: colors.bark }}>About your family</label>
                       <textarea
                         rows={3}
                         value={formData.aboutFamily}
@@ -1120,9 +1056,7 @@ const encode = (data) =>
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium mb-2" style={{ color: colors.bark }}>
-                        What you're looking for in a caregiver
-                      </label>
+                      <label className="block text-sm font-medium mb-2" style={{ color: colors.bark }}>What you're looking for in a caregiver</label>
                       <textarea
                         rows={3}
                         value={formData.whatLookingFor}
@@ -1134,15 +1068,13 @@ const encode = (data) =>
                     </div>
                   </div>
                 </div>
-
-                <button 
+                <button
                   type="submit"
                   className="w-full py-4 rounded-full text-lg font-semibold transition-all hover:shadow-xl"
                   style={{ backgroundColor: colors.terra, color: colors.white }}
                 >
                   Submit Request
                 </button>
-
                 <p className="text-sm text-center" style={{ color: colors.bark }}>
                   A placement specialist will contact you within 2-3 business days.
                 </p>
