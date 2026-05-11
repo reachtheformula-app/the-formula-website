@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Client Services Agreement — The Formula</title>
+<title>Client Services Agreement â The Formula</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -563,7 +563,7 @@
       <div class="field">
         <label for="numKids">Number of children</label>
         <select id="numKids">
-          <option value="">Select…</option>
+          <option value="">Selectâ¦</option>
           <option>1</option>
           <option>2</option>
           <option>3</option>
@@ -578,7 +578,7 @@
 
     <div class="actions">
       <span></span>
-      <button class="btn-primary" onclick="nextStep(1)">Continue →</button>
+      <button class="btn-primary" onclick="nextStep(1)">Continue â</button>
     </div>
   </div>
 
@@ -586,15 +586,15 @@
   <div class="step" data-step="2">
     <div class="eyebrow">Step 2 of 5</div>
     <h1>Please review <em>the agreement</em>.</h1>
-    <p class="lede">This is the engagement agreement between your family and The Formula. Please read carefully — your details are filled in below.</p>
+    <p class="lede">This is the engagement agreement between your family and The Formula. Please read carefully â your details are filled in below.</p>
 
     <div class="doc-card">
       <div class="doc-scroll" id="contractView"></div>
     </div>
 
     <div class="actions">
-      <button class="btn-back" onclick="prevStep(2)">← Back</button>
-      <button class="btn-primary" onclick="nextStep(2)">I've read this →</button>
+      <button class="btn-back" onclick="prevStep(2)">â Back</button>
+      <button class="btn-primary" onclick="nextStep(2)">I've read this â</button>
     </div>
   </div>
 
@@ -606,7 +606,7 @@
 
     <label class="ack" data-ack="employer">
       <input type="checkbox" />
-      <span class="ack-text"><strong>I am the employer.</strong> Once a nanny is placed, I — not The Formula — am the household employer responsible for payroll, taxes, workers' compensation insurance, and compliance with the Illinois Domestic Workers' Bill of Rights.</span>
+      <span class="ack-text"><strong>I am the employer.</strong> Once a nanny is placed, I â not The Formula â am the household employer responsible for payroll, taxes, workers' compensation insurance, and compliance with the Illinois Domestic Workers' Bill of Rights.</span>
     </label>
 
     <label class="ack" data-ack="fee">
@@ -616,7 +616,7 @@
 
     <label class="ack" data-ack="circumvention">
       <input type="checkbox" />
-      <span class="ack-text"><strong>Direct hire protection.</strong> If I (or anyone in my household) hire any candidate The Formula introduces, within 24 months — directly, through a third party, or for any role — the full placement fee is owed.</span>
+      <span class="ack-text"><strong>Direct hire protection.</strong> If I (or anyone in my household) hire any candidate The Formula introduces, within 24 months â directly, through a third party, or for any role â the full placement fee is owed.</span>
     </label>
 
     <label class="ack" data-ack="guarantee">
@@ -630,8 +630,8 @@
     </label>
 
     <div class="actions">
-      <button class="btn-back" onclick="prevStep(3)">← Back</button>
-      <button class="btn-primary" id="ackContinue" disabled onclick="nextStep(3)">Continue →</button>
+      <button class="btn-back" onclick="prevStep(3)">â Back</button>
+      <button class="btn-primary" id="ackContinue" disabled onclick="nextStep(3)">Continue â</button>
     </div>
   </div>
 
@@ -664,8 +664,8 @@
     </div>
 
     <div class="actions">
-      <button class="btn-back" onclick="prevStep(4)">← Back</button>
-      <button class="btn-primary" onclick="nextStep(4)">Continue to payment →</button>
+      <button class="btn-back" onclick="prevStep(4)">â Back</button>
+      <button class="btn-primary" onclick="nextStep(4)">Continue to payment â</button>
     </div>
   </div>
 
@@ -681,38 +681,20 @@
       <div class="desc">Non-refundable. Credited toward placement fee at hire.</div>
     </div>
 
-    <div class="field">
-      <label for="cardName">Name on card</label>
-      <input type="text" id="cardName" placeholder="As it appears on your card" autocomplete="cc-name" />
-    </div>
+    <p style="font-size: 15px; color: var(--ink-soft); line-height: 1.6; margin-bottom: 24px;">
+      When you continue, you'll be taken to our secure payment page (powered by Stripe) to complete your retainer. After payment, you'll be returned here to confirm your agreement.
+    </p>
 
-    <div class="field">
-      <label>Card information</label>
-      <div class="card-input-wrap">
-        <div class="card-icon"></div>
-        <input type="text" id="cardNumber" placeholder="1234 1234 1234 1234" inputmode="numeric" autocomplete="cc-number" maxlength="19" />
-      </div>
-    </div>
-
-    <div class="row-2">
-      <div class="field">
-        <label for="cardExp">Expiration</label>
-        <input type="text" id="cardExp" placeholder="MM / YY" inputmode="numeric" autocomplete="cc-exp" maxlength="7" />
-      </div>
-      <div class="field">
-        <label for="cardCvc">CVC</label>
-        <input type="text" id="cardCvc" placeholder="123" inputmode="numeric" autocomplete="cc-csc" maxlength="4" />
-      </div>
-    </div>
-
-    <div class="secure-note">
+    <div class="secure-note" style="margin-bottom: 24px;">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
-      Payment is processed securely by Stripe. The Formula never stores your card.
+      Payments are processed securely by Stripe. The Formula never sees or stores your card information.
     </div>
+
+    <div id="payError" class="error" style="margin-bottom: 16px;"></div>
 
     <div class="actions">
-      <button class="btn-back" onclick="prevStep(5)">← Back</button>
-      <button class="btn-primary" id="payBtn" onclick="submitPayment()">Sign &amp; pay $500</button>
+      <button class="btn-back" onclick="prevStep(5)">â Back</button>
+      <button class="btn-primary" id="payBtn" onclick="submitPayment()">Continue to secure payment â</button>
     </div>
   </div>
 
@@ -726,11 +708,11 @@
       <p class="lede" style="margin-left: auto; margin-right: auto;">Your agreement is signed and your retainer is received. We'll be in touch within 24 hours to schedule your intake call.</p>
 
       <div class="receipt">
-        <div class="receipt-row"><span class="k">Agreement ID</span><span class="v" id="rId">—</span></div>
-        <div class="receipt-row"><span class="k">Signed by</span><span class="v" id="rName">—</span></div>
-        <div class="receipt-row"><span class="k">Signed at</span><span class="v" id="rTime">—</span></div>
+        <div class="receipt-row"><span class="k">Agreement ID</span><span class="v" id="rId">â</span></div>
+        <div class="receipt-row"><span class="k">Signed by</span><span class="v" id="rName">â</span></div>
+        <div class="receipt-row"><span class="k">Signed at</span><span class="v" id="rTime">â</span></div>
         <div class="receipt-row"><span class="k">Retainer paid</span><span class="v" id="rAmount">$500.00</span></div>
-        <div class="receipt-row"><span class="k">Confirmation sent to</span><span class="v" id="rEmail">—</span></div>
+        <div class="receipt-row"><span class="k">Confirmation sent to</span><span class="v" id="rEmail">â</span></div>
       </div>
 
       <p style="font-size: 13px; color: var(--muted); margin-top: 28px;">A copy of your signed agreement and receipt has been sent to your email.</p>
@@ -741,16 +723,12 @@
 
 <script>
 /* =========================================================
-   The Formula — Client Services Agreement (Digital Flow)
+   The Formula â Client Services Agreement (Digital Flow)
    ---------------------------------------------------------
-   This is a self-contained prototype. To wire into production:
-   1. Replace `submitPayment()` mock with Stripe Checkout (you
-      already have Stripe configured — call your existing
-      /netlify/functions/create-checkout-session endpoint).
-   2. POST signed-agreement payload to a new Netlify Function
-      that writes to a `client_agreements` table in Neon.
-   3. Email the PDF copy via your sender of choice (e.g.
-      Resend, Postmark) on successful webhook.
+   Production-wired:
+   - POSTs signed agreement to /api/create-checkout-session
+   - Redirects to Stripe Checkout for payment
+   - On return, shows confirmation screen with receipt
    ========================================================= */
 
 // --- AGENCY-CONFIGURED TERMS (edit these) ---
@@ -847,7 +825,7 @@ function renderContract() {
     <p>The placement fee is fully earned upon the earlier of (i) the candidate's acceptance of the Family's offer or (ii) the candidate's first day of work, and is payable within <span class="filled">${TERMS.paymentDueDays}</span> days. Late amounts accrue 1.5% interest per month and the Family is responsible for all collection costs and attorneys' fees.</p>
 
     <h3>3. Anti-Circumvention</h3>
-    <p>If the Family (or any household member or affiliate) hires any candidate the Agency introduces — directly, through a third party, or for any role — within <span class="filled">${TERMS.circumventionMonths}</span> months of introduction, the full placement fee is immediately due. The Family will notify the Agency of any such hire within 5 business days.</p>
+    <p>If the Family (or any household member or affiliate) hires any candidate the Agency introduces â directly, through a third party, or for any role â within <span class="filled">${TERMS.circumventionMonths}</span> months of introduction, the full placement fee is immediately due. The Family will notify the Agency of any such hire within 5 business days.</p>
 
     <h3>4. Replacement Guarantee</h3>
     <p>If a placement ends within <span class="filled">${TERMS.guaranteeDays}</span> days for reasons not caused by the Family, the Agency will conduct one replacement search at no additional placement fee. The guarantee does not apply to changes in Family circumstances, Family misconduct, or Family-initiated termination without cause. No cash refunds; replacement is the Family's sole remedy.</p>
@@ -865,9 +843,9 @@ function renderContract() {
     <p>This Agreement is governed by Illinois law. Disputes will first be addressed through good-faith negotiation, then mediation in Cook County, then exclusively in the state or federal courts of Cook County, Illinois. The prevailing party is entitled to attorneys' fees. Both parties waive trial by jury.</p>
 
     <h3>9. Confidentiality</h3>
-    <p>Candidate information is the Agency's confidential property. The Family will not share candidate names, résumés, or contact details with anyone outside the household without written consent.</p>
+    <p>Candidate information is the Agency's confidential property. The Family will not share candidate names, rÃ©sumÃ©s, or contact details with anyone outside the household without written consent.</p>
 
-    <p style="margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--line); font-size: 13px; color: var(--muted);">Full agreement terms — including survival clauses, severability, force majeure, and electronic signature provisions — are incorporated by reference and available on request. The version controlling this engagement is the long-form agreement dated and signed by both parties.</p>
+    <p style="margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--line); font-size: 13px; color: var(--muted);">Full agreement terms â including survival clauses, severability, force majeure, and electronic signature provisions â are incorporated by reference and available on request. The version controlling this engagement is the long-form agreement dated and signed by both parties.</p>
   `;
   document.getElementById('contractView').innerHTML = html;
 }
@@ -961,71 +939,112 @@ function captureSignature() {
   state.signature.signedAt = new Date().toISOString();
 }
 
-// --- Card input formatting ---
-document.getElementById('cardNumber').addEventListener('input', e => {
-  let v = e.target.value.replace(/\D/g, '').slice(0, 16);
-  e.target.value = v.replace(/(.{4})/g, '$1 ').trim();
-});
-document.getElementById('cardExp').addEventListener('input', e => {
-  let v = e.target.value.replace(/\D/g, '').slice(0, 4);
-  if (v.length >= 3) v = v.slice(0, 2) + ' / ' + v.slice(2);
-  e.target.value = v;
-});
-document.getElementById('cardCvc').addEventListener('input', e => {
-  e.target.value = e.target.value.replace(/\D/g, '').slice(0, 4);
-});
-
-// --- Submit payment (mocked — replace with Stripe Checkout) ---
+// --- Submit payment: POST to Netlify Function, redirect to Stripe Checkout ---
 async function submitPayment() {
   const btn = document.getElementById('payBtn');
-  const fields = ['cardName', 'cardNumber', 'cardExp', 'cardCvc'];
-  let ok = true;
-  fields.forEach(id => {
-    const el = document.getElementById(id);
-    const wrap = el.closest('.field');
-    if (!el.value.trim()) { wrap.classList.add('invalid'); ok = false; }
-    else { wrap.classList.remove('invalid'); }
-  });
-  if (!ok) return;
+  const errEl = document.getElementById('payError');
+  errEl.classList.remove('show');
+  errEl.textContent = '';
 
   btn.disabled = true;
-  btn.innerHTML = '<span class="spinner"></span>Processing…';
+  btn.innerHTML = '<span class="spinner"></span>Preparing secure paymentâ¦';
 
-  /* PRODUCTION INTEGRATION POINT — replace this block:
-     const res = await fetch('/.netlify/functions/create-agreement-checkout', {
-       method: 'POST',
-       headers: { 'Content-Type': 'application/json' },
-       body: JSON.stringify({
-         family: state.family,
-         acknowledgments: state.acks,
-         signature: state.signature,
-         agreementId: state.agreementId,
-         retainerCents: TERMS.retainerAmount * 100,
-       }),
-     });
-     const { sessionId } = await res.json();
-     stripe.redirectToCheckout({ sessionId });
-  */
+  try {
+    const res = await fetch('/api/create-checkout-session', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        agreementId: state.agreementId,
+        family: state.family,
+        acknowledgments: state.acks,
+        signature: state.signature,
+        terms: {
+          retainerAmount: TERMS.retainerAmount,
+          placementFeePct: TERMS.placementFeePct,
+          placementFeeMin: TERMS.placementFeeMin,
+        },
+      }),
+    });
 
-  await new Promise(r => setTimeout(r, 1800)); // simulated
+    if (!res.ok) {
+      const errBody = await res.json().catch(() => ({ error: 'Unable to start payment.' }));
+      throw new Error(errBody.error || `Request failed (${res.status})`);
+    }
 
-  // Populate confirmation
-  document.getElementById('welcomeName').textContent = state.family.parent1.split(' ')[0];
-  document.getElementById('rId').textContent = state.agreementId;
-  document.getElementById('rName').textContent = state.family.parent1;
-  document.getElementById('rTime').textContent = new Date().toLocaleString('en-US', { dateStyle: 'medium', timeStyle: 'short' });
-  document.getElementById('rAmount').textContent = `$${TERMS.retainerAmount.toFixed(2)}`;
-  document.getElementById('rEmail').textContent = state.family.email;
+    const { url } = await res.json();
+    if (!url) throw new Error('Payment session could not be created.');
 
-  showStep(6);
-  // Hide progress on confirmation
-  document.getElementById('progress').style.display = 'none';
+    // Save agreement state to sessionStorage so we can show confirmation on return
+    try {
+      sessionStorage.setItem('tf_pending_agreement', JSON.stringify({
+        agreementId: state.agreementId,
+        family: state.family,
+      }));
+    } catch (_) { /* sessionStorage unavailable â non-fatal */ }
+
+    // Redirect to Stripe's hosted checkout
+    window.location.href = url;
+  } catch (err) {
+    console.error('submitPayment error:', err);
+    btn.disabled = false;
+    btn.textContent = `Continue to secure payment â`;
+    errEl.textContent = `We couldn't start your payment: ${err.message}. Please try again, or email reach.theformula@gmail.com if this keeps happening.`;
+    errEl.classList.add('show');
+  }
+}
+
+// --- Handle return from Stripe Checkout ---
+function handleStripeReturn() {
+  const params = new URLSearchParams(window.location.search);
+
+  if (params.get('canceled') === 'true') {
+    // Family backed out at Stripe â return them to the payment step
+    showStep(5);
+    const errEl = document.getElementById('payError');
+    if (errEl) {
+      errEl.textContent = 'Payment was canceled. You can try again whenever you\'re ready.';
+      errEl.classList.add('show');
+    }
+    // Clean URL
+    history.replaceState({}, '', window.location.pathname);
+    return;
+  }
+
+  if (params.get('success') === 'true') {
+    // Family completed payment â show confirmation
+    let saved = null;
+    try {
+      const raw = sessionStorage.getItem('tf_pending_agreement');
+      if (raw) saved = JSON.parse(raw);
+    } catch (_) {}
+
+    const firstName = saved?.family?.parent1?.split(' ')[0] || 'friend';
+    const fullName = saved?.family?.parent1 || 'â';
+    const email = saved?.family?.email || 'â';
+    const agreementId = saved?.agreementId || 'â';
+
+    document.getElementById('welcomeName').textContent = firstName;
+    document.getElementById('rId').textContent = agreementId;
+    document.getElementById('rName').textContent = fullName;
+    document.getElementById('rTime').textContent = new Date().toLocaleString('en-US', { dateStyle: 'medium', timeStyle: 'short' });
+    document.getElementById('rAmount').textContent = `$${TERMS.retainerAmount.toFixed(2)}`;
+    document.getElementById('rEmail').textContent = email;
+
+    showStep(6);
+    document.getElementById('progress').style.display = 'none';
+
+    // Clean up
+    try { sessionStorage.removeItem('tf_pending_agreement'); } catch (_) {}
+    history.replaceState({}, '', window.location.pathname);
+  }
 }
 
 // --- Init ---
 document.getElementById('sigDate').value = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
 document.getElementById('retainerDisplay').textContent = `$${TERMS.retainerAmount.toFixed(2)}`;
-document.querySelector('#payBtn').textContent = `Sign & pay $${TERMS.retainerAmount}`;
+
+// Check if family is returning from Stripe Checkout
+handleStripeReturn();
 </script>
 
 </body>
