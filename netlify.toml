@@ -2,6 +2,20 @@
   command = "npm run build"
   publish = "dist"
 
+# Allow static files in /public to be served directly
+[[redirects]]
+  from = "/agreement.html"
+  to = "/agreement.html"
+  status = 200
+  force = false
+
+# Allow Netlify Functions to be called via /api/*
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
+
+# SPA fallback - must be LAST
 [[redirects]]
   from = "/*"
   to = "/index.html"
