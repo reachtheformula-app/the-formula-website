@@ -1,4 +1,5 @@
-Add package.json with Stripe and Neon dependencies for functions  "name": "the-formula-functions",
+{
+  "name": "the-formula-functions",
   "version": "1.0.0",
   "private": true,
   "description": "Netlify Functions for The Formula client agreement flow",
