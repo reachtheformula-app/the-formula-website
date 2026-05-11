@@ -1,0 +1,1032 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Client Services Agreement — The Formula</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Manrope:wght@300;400;500;600;700&family=Caveat:wght@500;700&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --cream: #f7f0e3;
+    --cream-deep: #ede1cc;
+    --sand: #d8c4a3;
+    --sand-deep: #c4a87f;
+    --terra: #b8593c;
+    --terra-deep: #94432d;
+    --ink: #2a1f17;
+    --ink-soft: #5a4738;
+    --muted: #8a7763;
+    --line: #e3d5bc;
+    --paper: #fbf8f1;
+    --success: #4a6b3a;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'Manrope', system-ui, sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ---- Layout shell ---- */
+  .shell {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 32px 24px 80px;
+  }
+
+  /* ---- Header ---- */
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 28px;
+  }
+  .brand-badge {
+    width: 44px;
+    height: 44px;
+    background: var(--ink);
+    color: var(--cream);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 22px;
+    font-weight: 600;
+  }
+  .brand-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+  }
+  .brand-tag {
+    font-size: 12px;
+    color: var(--muted);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-top: 2px;
+  }
+
+  /* ---- Progress strip ---- */
+  .progress {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 36px;
+  }
+  .progress-bar {
+    flex: 1;
+    height: 3px;
+    background: var(--cream-deep);
+    border-radius: 2px;
+    overflow: hidden;
+    position: relative;
+  }
+  .progress-bar.done::after,
+  .progress-bar.active::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--terra);
+    transform-origin: left;
+    animation: fill .6s ease forwards;
+  }
+  .progress-bar.done::after { background: var(--ink); }
+  @keyframes fill {
+    from { transform: scaleX(0); }
+    to   { transform: scaleX(1); }
+  }
+
+  /* ---- Step framing ---- */
+  .step { display: none; }
+  .step.active {
+    display: block;
+    animation: rise .5s cubic-bezier(.2,.8,.2,1) both;
+  }
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: none; }
+  }
+
+  .eyebrow {
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 500;
+    font-size: clamp(32px, 4.5vw, 44px);
+    line-height: 1.1;
+    margin: 0 0 16px;
+    letter-spacing: -0.01em;
+  }
+  h1 em {
+    font-style: italic;
+    color: var(--terra);
+  }
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 500;
+    font-size: 24px;
+    margin: 32px 0 14px;
+    letter-spacing: -0.005em;
+  }
+  .lede {
+    font-size: 17px;
+    color: var(--ink-soft);
+    margin-bottom: 32px;
+    max-width: 56ch;
+  }
+
+  /* ---- Form fields ---- */
+  .field {
+    margin-bottom: 18px;
+  }
+  .field label {
+    display: block;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--ink-soft);
+    margin-bottom: 6px;
+    letter-spacing: 0.01em;
+  }
+  .field .hint {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 4px;
+  }
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="number"],
+  textarea,
+  select {
+    width: 100%;
+    padding: 12px 14px;
+    font-family: inherit;
+    font-size: 15px;
+    color: var(--ink);
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    transition: border-color .2s, box-shadow .2s, background .2s;
+  }
+  input:focus, textarea:focus, select:focus {
+    outline: none;
+    border-color: var(--terra);
+    box-shadow: 0 0 0 3px rgba(184, 89, 60, 0.12);
+    background: #fff;
+  }
+  .row-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+  @media (max-width: 540px) {
+    .row-2 { grid-template-columns: 1fr; }
+  }
+
+  /* ---- Buttons ---- */
+  .actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 36px;
+    padding-top: 24px;
+    border-top: 1px solid var(--line);
+  }
+  button {
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+    transition: all .2s;
+  }
+  .btn-primary {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 13px 28px;
+    border-radius: 999px;
+    letter-spacing: 0.01em;
+  }
+  .btn-primary:hover {
+    background: var(--terra);
+    transform: translateY(-1px);
+  }
+  .btn-primary:disabled {
+    background: var(--sand);
+    cursor: not-allowed;
+    transform: none;
+  }
+  .btn-back {
+    background: none;
+    color: var(--muted);
+    padding: 8px 0;
+  }
+  .btn-back:hover { color: var(--ink); }
+
+  /* ---- Contract preview card ---- */
+  .doc-card {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 28px 32px;
+    margin-bottom: 24px;
+    box-shadow: 0 1px 0 rgba(42, 31, 23, 0.04);
+  }
+  .doc-scroll {
+    max-height: 420px;
+    overflow-y: auto;
+    padding-right: 8px;
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--ink-soft);
+  }
+  .doc-scroll::-webkit-scrollbar { width: 6px; }
+  .doc-scroll::-webkit-scrollbar-thumb { background: var(--sand); border-radius: 3px; }
+  .doc-scroll h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    color: var(--ink);
+    margin: 20px 0 8px;
+    font-weight: 600;
+  }
+  .doc-scroll h3:first-child { margin-top: 0; }
+  .doc-scroll .filled {
+    background: rgba(184, 89, 60, 0.08);
+    color: var(--terra-deep);
+    padding: 1px 5px;
+    border-radius: 3px;
+    font-weight: 500;
+  }
+
+  /* ---- Acknowledgment checkboxes ---- */
+  .ack {
+    display: flex;
+    gap: 12px;
+    padding: 14px 16px;
+    margin-bottom: 10px;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all .2s;
+  }
+  .ack:hover { border-color: var(--sand-deep); }
+  .ack.checked {
+    background: #fff;
+    border-color: var(--terra);
+  }
+  .ack input { margin-top: 3px; accent-color: var(--terra); flex-shrink: 0; }
+  .ack-text {
+    font-size: 14px;
+    color: var(--ink-soft);
+    line-height: 1.55;
+  }
+  .ack-text strong { color: var(--ink); font-weight: 600; }
+
+  /* ---- Signature ---- */
+  .sig-tabs {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 12px;
+    background: var(--cream-deep);
+    padding: 4px;
+    border-radius: 999px;
+    width: fit-content;
+  }
+  .sig-tab {
+    background: none;
+    padding: 8px 18px;
+    border-radius: 999px;
+    font-size: 13px;
+    color: var(--ink-soft);
+  }
+  .sig-tab.active {
+    background: var(--paper);
+    color: var(--ink);
+    box-shadow: 0 1px 2px rgba(0,0,0,.04);
+  }
+  .sig-pane { display: none; }
+  .sig-pane.active { display: block; }
+
+  .sig-typed-input {
+    font-family: 'Caveat', cursive;
+    font-size: 36px;
+    padding: 18px 16px;
+    height: 100px;
+    line-height: 1;
+    color: var(--ink);
+    background: var(--paper);
+  }
+  .sig-canvas-wrap {
+    position: relative;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  .sig-canvas-wrap canvas {
+    display: block;
+    width: 100%;
+    height: 160px;
+    cursor: crosshair;
+    touch-action: none;
+  }
+  .sig-clear {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: rgba(255,255,255,0.9);
+    border: 1px solid var(--line);
+    padding: 4px 12px;
+    font-size: 12px;
+    border-radius: 999px;
+    color: var(--muted);
+  }
+  .sig-line {
+    border-bottom: 1px solid var(--sand-deep);
+    height: 1px;
+    margin: 12px 16px 0;
+    position: absolute;
+    bottom: 30px;
+    left: 0; right: 0;
+  }
+
+  /* ---- Payment ---- */
+  .pay-summary {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 28px 32px;
+    border-radius: 8px;
+    margin-bottom: 24px;
+  }
+  .pay-summary .label {
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--sand);
+    margin-bottom: 8px;
+  }
+  .pay-summary .amount {
+    font-family: 'Playfair Display', serif;
+    font-size: 44px;
+    font-weight: 500;
+    margin-bottom: 4px;
+  }
+  .pay-summary .desc {
+    font-size: 14px;
+    color: var(--cream-deep);
+    opacity: 0.85;
+  }
+
+  .card-input-wrap {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 14px 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: border-color .2s, box-shadow .2s;
+  }
+  .card-input-wrap:focus-within {
+    border-color: var(--terra);
+    box-shadow: 0 0 0 3px rgba(184, 89, 60, 0.12);
+  }
+  .card-input-wrap input {
+    border: none;
+    background: none;
+    padding: 0;
+    flex: 1;
+    font-size: 15px;
+  }
+  .card-input-wrap input:focus { box-shadow: none; }
+  .card-icon {
+    width: 28px;
+    height: 18px;
+    background: linear-gradient(135deg, var(--sand-deep), var(--terra));
+    border-radius: 3px;
+    flex-shrink: 0;
+  }
+
+  .secure-note {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 14px;
+  }
+  .secure-note svg { flex-shrink: 0; }
+
+  /* ---- Confirmation ---- */
+  .confirm-wrap {
+    text-align: center;
+    padding: 40px 20px;
+  }
+  .confirm-mark {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: var(--ink);
+    color: var(--cream);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 24px;
+    animation: pop .6s cubic-bezier(.2,.8,.4,1.2) both;
+  }
+  @keyframes pop {
+    from { transform: scale(0); }
+    to { transform: scale(1); }
+  }
+  .receipt {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 24px 28px;
+    margin: 32px auto 0;
+    text-align: left;
+    max-width: 440px;
+  }
+  .receipt-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    font-size: 14px;
+    border-bottom: 1px dashed var(--line);
+  }
+  .receipt-row:last-child { border-bottom: none; }
+  .receipt-row .k { color: var(--muted); }
+  .receipt-row .v { color: var(--ink); font-weight: 500; }
+
+  /* ---- Errors ---- */
+  .error {
+    color: var(--terra-deep);
+    font-size: 13px;
+    margin-top: 8px;
+    display: none;
+  }
+  .error.show { display: block; }
+  .field.invalid input { border-color: var(--terra-deep); }
+
+  /* ---- Spinner ---- */
+  .spinner {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    border: 2px solid rgba(247, 240, 227, 0.3);
+    border-top-color: var(--cream);
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+    margin-right: 8px;
+    vertical-align: -2px;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+</style>
+</head>
+<body>
+
+<div class="shell">
+
+  <!-- Brand header -->
+  <div class="brand">
+    <div class="brand-badge">F</div>
+    <div>
+      <div class="brand-name">The Formula</div>
+      <div class="brand-tag">Client Services Agreement</div>
+    </div>
+  </div>
+
+  <!-- Progress -->
+  <div class="progress" id="progress">
+    <div class="progress-bar active"></div>
+    <div class="progress-bar"></div>
+    <div class="progress-bar"></div>
+    <div class="progress-bar"></div>
+    <div class="progress-bar"></div>
+  </div>
+
+  <!-- ============ STEP 1: Welcome + Family Info ============ -->
+  <div class="step active" data-step="1">
+    <div class="eyebrow">Step 1 of 5</div>
+    <h1>Let's begin <em>your search</em>.</h1>
+    <p class="lede">A few details about your family, and we'll prepare your engagement agreement. This usually takes about three minutes.</p>
+
+    <h2>Your family</h2>
+
+    <div class="row-2">
+      <div class="field">
+        <label for="parent1">Primary parent / guardian</label>
+        <input type="text" id="parent1" placeholder="Full legal name" autocomplete="name" />
+      </div>
+      <div class="field">
+        <label for="parent2">Second parent / guardian (optional)</label>
+        <input type="text" id="parent2" placeholder="Full legal name" />
+      </div>
+    </div>
+
+    <div class="row-2">
+      <div class="field">
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="you@example.com" autocomplete="email" />
+      </div>
+      <div class="field">
+        <label for="phone">Phone</label>
+        <input type="tel" id="phone" placeholder="(312) 555-0142" autocomplete="tel" />
+      </div>
+    </div>
+
+    <div class="field">
+      <label for="address">Home address</label>
+      <input type="text" id="address" placeholder="Street, City, State, ZIP" autocomplete="street-address" />
+    </div>
+
+    <div class="row-2">
+      <div class="field">
+        <label for="numKids">Number of children</label>
+        <select id="numKids">
+          <option value="">Select…</option>
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4 or more</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="ages">Children's ages</label>
+        <input type="text" id="ages" placeholder="e.g., 2, 4" />
+      </div>
+    </div>
+
+    <div class="actions">
+      <span></span>
+      <button class="btn-primary" onclick="nextStep(1)">Continue →</button>
+    </div>
+  </div>
+
+  <!-- ============ STEP 2: Review Contract ============ -->
+  <div class="step" data-step="2">
+    <div class="eyebrow">Step 2 of 5</div>
+    <h1>Please review <em>the agreement</em>.</h1>
+    <p class="lede">This is the engagement agreement between your family and The Formula. Please read carefully — your details are filled in below.</p>
+
+    <div class="doc-card">
+      <div class="doc-scroll" id="contractView"></div>
+    </div>
+
+    <div class="actions">
+      <button class="btn-back" onclick="prevStep(2)">← Back</button>
+      <button class="btn-primary" onclick="nextStep(2)">I've read this →</button>
+    </div>
+  </div>
+
+  <!-- ============ STEP 3: Acknowledgments ============ -->
+  <div class="step" data-step="3">
+    <div class="eyebrow">Step 3 of 5</div>
+    <h1>A few key <em>acknowledgments</em>.</h1>
+    <p class="lede">Please confirm you understand each of the following before signing.</p>
+
+    <label class="ack" data-ack="employer">
+      <input type="checkbox" />
+      <span class="ack-text"><strong>I am the employer.</strong> Once a nanny is placed, I — not The Formula — am the household employer responsible for payroll, taxes, workers' compensation insurance, and compliance with the Illinois Domestic Workers' Bill of Rights.</span>
+    </label>
+
+    <label class="ack" data-ack="fee">
+      <input type="checkbox" />
+      <span class="ack-text"><strong>Payment terms.</strong> The retainer is non-refundable and credited toward the placement fee. The full placement fee is due within 7 days of offer acceptance or the nanny's first day, whichever is earlier.</span>
+    </label>
+
+    <label class="ack" data-ack="circumvention">
+      <input type="checkbox" />
+      <span class="ack-text"><strong>Direct hire protection.</strong> If I (or anyone in my household) hire any candidate The Formula introduces, within 24 months — directly, through a third party, or for any role — the full placement fee is owed.</span>
+    </label>
+
+    <label class="ack" data-ack="guarantee">
+      <input type="checkbox" />
+      <span class="ack-text"><strong>Replacement guarantee.</strong> If the placement ends within 90 days for reasons not caused by my family, The Formula will conduct one replacement search at no additional placement fee. No cash refunds.</span>
+    </label>
+
+    <label class="ack" data-ack="confidential">
+      <input type="checkbox" />
+      <span class="ack-text"><strong>Candidate confidentiality.</strong> Candidate information shared with me is confidential and may not be forwarded, posted, or shared with anyone outside my household without The Formula's written consent.</span>
+    </label>
+
+    <div class="actions">
+      <button class="btn-back" onclick="prevStep(3)">← Back</button>
+      <button class="btn-primary" id="ackContinue" disabled onclick="nextStep(3)">Continue →</button>
+    </div>
+  </div>
+
+  <!-- ============ STEP 4: Signature ============ -->
+  <div class="step" data-step="4">
+    <div class="eyebrow">Step 4 of 5</div>
+    <h1>Add your <em>signature</em>.</h1>
+    <p class="lede">Type or draw your signature below. By signing, you agree to all terms in the agreement above.</p>
+
+    <div class="sig-tabs">
+      <button class="sig-tab active" data-tab="type" onclick="setSigTab('type')">Type</button>
+      <button class="sig-tab" data-tab="draw" onclick="setSigTab('draw')">Draw</button>
+    </div>
+
+    <div class="field">
+      <div class="sig-pane active" data-pane="type">
+        <input type="text" id="sigTyped" class="sig-typed-input" placeholder="Type your full name" />
+      </div>
+      <div class="sig-pane" data-pane="draw">
+        <div class="sig-canvas-wrap">
+          <canvas id="sigCanvas"></canvas>
+          <button class="sig-clear" onclick="clearSig()">Clear</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="field">
+      <label for="sigDate">Date</label>
+      <input type="text" id="sigDate" readonly />
+    </div>
+
+    <div class="actions">
+      <button class="btn-back" onclick="prevStep(4)">← Back</button>
+      <button class="btn-primary" onclick="nextStep(4)">Continue to payment →</button>
+    </div>
+  </div>
+
+  <!-- ============ STEP 5: Payment ============ -->
+  <div class="step" data-step="5">
+    <div class="eyebrow">Step 5 of 5</div>
+    <h1>Submit your <em>retainer</em>.</h1>
+    <p class="lede">Your retainer secures your spot in our search queue and is credited toward your placement fee.</p>
+
+    <div class="pay-summary">
+      <div class="label">Retainer due today</div>
+      <div class="amount" id="retainerDisplay">$500.00</div>
+      <div class="desc">Non-refundable. Credited toward placement fee at hire.</div>
+    </div>
+
+    <div class="field">
+      <label for="cardName">Name on card</label>
+      <input type="text" id="cardName" placeholder="As it appears on your card" autocomplete="cc-name" />
+    </div>
+
+    <div class="field">
+      <label>Card information</label>
+      <div class="card-input-wrap">
+        <div class="card-icon"></div>
+        <input type="text" id="cardNumber" placeholder="1234 1234 1234 1234" inputmode="numeric" autocomplete="cc-number" maxlength="19" />
+      </div>
+    </div>
+
+    <div class="row-2">
+      <div class="field">
+        <label for="cardExp">Expiration</label>
+        <input type="text" id="cardExp" placeholder="MM / YY" inputmode="numeric" autocomplete="cc-exp" maxlength="7" />
+      </div>
+      <div class="field">
+        <label for="cardCvc">CVC</label>
+        <input type="text" id="cardCvc" placeholder="123" inputmode="numeric" autocomplete="cc-csc" maxlength="4" />
+      </div>
+    </div>
+
+    <div class="secure-note">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+      Payment is processed securely by Stripe. The Formula never stores your card.
+    </div>
+
+    <div class="actions">
+      <button class="btn-back" onclick="prevStep(5)">← Back</button>
+      <button class="btn-primary" id="payBtn" onclick="submitPayment()">Sign &amp; pay $500</button>
+    </div>
+  </div>
+
+  <!-- ============ CONFIRMATION ============ -->
+  <div class="step" data-step="6">
+    <div class="confirm-wrap">
+      <div class="confirm-mark">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+      <h1>You're all set, <em><span id="welcomeName">friend</span></em>.</h1>
+      <p class="lede" style="margin-left: auto; margin-right: auto;">Your agreement is signed and your retainer is received. We'll be in touch within 24 hours to schedule your intake call.</p>
+
+      <div class="receipt">
+        <div class="receipt-row"><span class="k">Agreement ID</span><span class="v" id="rId">—</span></div>
+        <div class="receipt-row"><span class="k">Signed by</span><span class="v" id="rName">—</span></div>
+        <div class="receipt-row"><span class="k">Signed at</span><span class="v" id="rTime">—</span></div>
+        <div class="receipt-row"><span class="k">Retainer paid</span><span class="v" id="rAmount">$500.00</span></div>
+        <div class="receipt-row"><span class="k">Confirmation sent to</span><span class="v" id="rEmail">—</span></div>
+      </div>
+
+      <p style="font-size: 13px; color: var(--muted); margin-top: 28px;">A copy of your signed agreement and receipt has been sent to your email.</p>
+    </div>
+  </div>
+
+</div>
+
+<script>
+/* =========================================================
+   The Formula — Client Services Agreement (Digital Flow)
+   ---------------------------------------------------------
+   This is a self-contained prototype. To wire into production:
+   1. Replace `submitPayment()` mock with Stripe Checkout (you
+      already have Stripe configured — call your existing
+      /netlify/functions/create-checkout-session endpoint).
+   2. POST signed-agreement payload to a new Netlify Function
+      that writes to a `client_agreements` table in Neon.
+   3. Email the PDF copy via your sender of choice (e.g.
+      Resend, Postmark) on successful webhook.
+   ========================================================= */
+
+// --- AGENCY-CONFIGURED TERMS (edit these) ---
+const TERMS = {
+  retainerAmount: 500,
+  placementFeePct: 15,             // % of Annual Gross Compensation
+  placementFeeMin: 3500,           // floor
+  guaranteeDays: 90,
+  circumventionMonths: 24,
+  paymentDueDays: 7,
+};
+
+const state = {
+  step: 1,
+  family: {},
+  acks: {},
+  signature: { method: 'type', data: '' },
+  agreementId: 'TF-' + Math.random().toString(36).slice(2, 8).toUpperCase(),
+};
+
+// --- Step navigation ---
+function showStep(n) {
+  document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+  const next = document.querySelector(`[data-step="${n}"]`);
+  if (next) next.classList.add('active');
+
+  const bars = document.querySelectorAll('.progress-bar');
+  bars.forEach((b, i) => {
+    b.classList.remove('active', 'done');
+    if (i + 1 < n) b.classList.add('done');
+    if (i + 1 === n) b.classList.add('active');
+  });
+
+  state.step = n;
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function nextStep(from) {
+  if (from === 1) {
+    if (!validateFamilyInfo()) return;
+    captureFamily();
+    renderContract();
+  }
+  if (from === 4) {
+    if (!validateSignature()) return;
+    captureSignature();
+  }
+  showStep(from + 1);
+}
+
+function prevStep(from) { showStep(from - 1); }
+
+// --- Step 1 validation ---
+function validateFamilyInfo() {
+  const required = ['parent1', 'email', 'phone', 'address', 'numKids', 'ages'];
+  let ok = true;
+  required.forEach(id => {
+    const el = document.getElementById(id);
+    const wrap = el.closest('.field');
+    if (!el.value.trim()) { wrap.classList.add('invalid'); ok = false; }
+    else { wrap.classList.remove('invalid'); }
+  });
+  return ok;
+}
+
+function captureFamily() {
+  state.family = {
+    parent1: val('parent1'),
+    parent2: val('parent2'),
+    email: val('email'),
+    phone: val('phone'),
+    address: val('address'),
+    numKids: val('numKids'),
+    ages: val('ages'),
+  };
+}
+
+function val(id) { return document.getElementById(id).value.trim(); }
+
+// --- Render contract with details filled in ---
+function renderContract() {
+  const f = state.family;
+  const familyNames = f.parent2 ? `${f.parent1} and ${f.parent2}` : f.parent1;
+
+  const html = `
+    <h3>Client Services Agreement</h3>
+    <p>This Agreement is entered into between <span class="filled">${esc(familyNames)}</span> (the "Family"), residing at <span class="filled">${esc(f.address)}</span>, and <strong>The Formula</strong> (the "Agency"), an Illinois nanny placement service.</p>
+
+    <h3>1. Scope of Services</h3>
+    <p>The Agency will source, screen, and present qualified nanny candidates for the Family's <span class="filled">${esc(f.numKids)}</span> child(ren), age(s) <span class="filled">${esc(f.ages)}</span>. The Family is the sole employer of any nanny placed.</p>
+
+    <h3>2. Placement Fee</h3>
+    <p>The Family will pay a non-refundable retainer of <span class="filled">$${TERMS.retainerAmount.toFixed(2)}</span> upon signing this Agreement, credited toward the placement fee. The placement fee is <span class="filled">${TERMS.placementFeePct}%</span> of the nanny's Annual Gross Compensation, with a minimum of <span class="filled">$${TERMS.placementFeeMin.toLocaleString()}</span>, less the retainer.</p>
+    <p>The placement fee is fully earned upon the earlier of (i) the candidate's acceptance of the Family's offer or (ii) the candidate's first day of work, and is payable within <span class="filled">${TERMS.paymentDueDays}</span> days. Late amounts accrue 1.5% interest per month and the Family is responsible for all collection costs and attorneys' fees.</p>
+
+    <h3>3. Anti-Circumvention</h3>
+    <p>If the Family (or any household member or affiliate) hires any candidate the Agency introduces — directly, through a third party, or for any role — within <span class="filled">${TERMS.circumventionMonths}</span> months of introduction, the full placement fee is immediately due. The Family will notify the Agency of any such hire within 5 business days.</p>
+
+    <h3>4. Replacement Guarantee</h3>
+    <p>If a placement ends within <span class="filled">${TERMS.guaranteeDays}</span> days for reasons not caused by the Family, the Agency will conduct one replacement search at no additional placement fee. The guarantee does not apply to changes in Family circumstances, Family misconduct, or Family-initiated termination without cause. No cash refunds; replacement is the Family's sole remedy.</p>
+
+    <h3>5. Family Responsibilities</h3>
+    <p>The Family is the household employer and is responsible for payroll, tax withholding (federal income, Social Security, Medicare, FUTA, IDES), workers' compensation insurance, compliance with the Illinois Domestic Workers' Bill of Rights, and all other applicable laws.</p>
+
+    <h3>6. Disclaimers &amp; Limitation of Liability</h3>
+    <p>Services are provided "as is." The Agency makes no warranties about candidate performance or longevity. The Agency's total liability is capped at fees paid in the prior 12 months. The Agency is not liable for indirect, consequential, or punitive damages.</p>
+
+    <h3>7. Indemnification</h3>
+    <p>The Family will indemnify the Agency against claims arising from the Family's employment of any candidate, breach of this Agreement, or violation of law.</p>
+
+    <h3>8. Governing Law &amp; Disputes</h3>
+    <p>This Agreement is governed by Illinois law. Disputes will first be addressed through good-faith negotiation, then mediation in Cook County, then exclusively in the state or federal courts of Cook County, Illinois. The prevailing party is entitled to attorneys' fees. Both parties waive trial by jury.</p>
+
+    <h3>9. Confidentiality</h3>
+    <p>Candidate information is the Agency's confidential property. The Family will not share candidate names, résumés, or contact details with anyone outside the household without written consent.</p>
+
+    <p style="margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--line); font-size: 13px; color: var(--muted);">Full agreement terms — including survival clauses, severability, force majeure, and electronic signature provisions — are incorporated by reference and available on request. The version controlling this engagement is the long-form agreement dated and signed by both parties.</p>
+  `;
+  document.getElementById('contractView').innerHTML = html;
+}
+
+function esc(s) {
+  return String(s || '').replace(/[&<>"']/g, c => ({
+    '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
+  }[c]));
+}
+
+// --- Step 3 acknowledgments ---
+document.querySelectorAll('.ack').forEach(ack => {
+  const cb = ack.querySelector('input');
+  ack.addEventListener('click', e => {
+    if (e.target !== cb) cb.checked = !cb.checked;
+    ack.classList.toggle('checked', cb.checked);
+    state.acks[ack.dataset.ack] = cb.checked;
+    const all = document.querySelectorAll('.ack input');
+    const allOn = Array.from(all).every(i => i.checked);
+    document.getElementById('ackContinue').disabled = !allOn;
+  });
+});
+
+// --- Step 4 signature ---
+function setSigTab(tab) {
+  document.querySelectorAll('.sig-tab').forEach(t => t.classList.toggle('active', t.dataset.tab === tab));
+  document.querySelectorAll('.sig-pane').forEach(p => p.classList.toggle('active', p.dataset.pane === tab));
+  state.signature.method = tab;
+  if (tab === 'draw') initCanvas();
+}
+
+let canvas, ctx, drawing = false, hasDrawn = false;
+function initCanvas() {
+  if (canvas) return;
+  canvas = document.getElementById('sigCanvas');
+  ctx = canvas.getContext('2d');
+  resizeCanvas();
+  window.addEventListener('resize', resizeCanvas);
+
+  const start = e => { drawing = true; hasDrawn = true; const p = pos(e); ctx.beginPath(); ctx.moveTo(p.x, p.y); };
+  const move  = e => { if (!drawing) return; e.preventDefault(); const p = pos(e); ctx.lineTo(p.x, p.y); ctx.stroke(); };
+  const end   = () => { drawing = false; };
+
+  canvas.addEventListener('mousedown', start);
+  canvas.addEventListener('mousemove', move);
+  canvas.addEventListener('mouseup', end);
+  canvas.addEventListener('mouseleave', end);
+  canvas.addEventListener('touchstart', start);
+  canvas.addEventListener('touchmove', move);
+  canvas.addEventListener('touchend', end);
+}
+function resizeCanvas() {
+  const dpr = window.devicePixelRatio || 1;
+  const rect = canvas.getBoundingClientRect();
+  canvas.width = rect.width * dpr;
+  canvas.height = rect.height * dpr;
+  ctx.scale(dpr, dpr);
+  ctx.lineWidth = 2;
+  ctx.lineCap = 'round';
+  ctx.lineJoin = 'round';
+  ctx.strokeStyle = '#2a1f17';
+}
+function pos(e) {
+  const r = canvas.getBoundingClientRect();
+  const t = e.touches ? e.touches[0] : e;
+  return { x: t.clientX - r.left, y: t.clientY - r.top };
+}
+function clearSig() {
+  if (!ctx) return;
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  hasDrawn = false;
+}
+
+function validateSignature() {
+  if (state.signature.method === 'type') {
+    const v = document.getElementById('sigTyped').value.trim();
+    if (v.length < 2) { alert('Please type your full name to sign.'); return false; }
+    return true;
+  } else {
+    if (!hasDrawn) { alert('Please draw your signature.'); return false; }
+    return true;
+  }
+}
+
+function captureSignature() {
+  if (state.signature.method === 'type') {
+    state.signature.data = document.getElementById('sigTyped').value.trim();
+  } else {
+    state.signature.data = canvas.toDataURL('image/png');
+  }
+  state.signature.signedAt = new Date().toISOString();
+}
+
+// --- Card input formatting ---
+document.getElementById('cardNumber').addEventListener('input', e => {
+  let v = e.target.value.replace(/\D/g, '').slice(0, 16);
+  e.target.value = v.replace(/(.{4})/g, '$1 ').trim();
+});
+document.getElementById('cardExp').addEventListener('input', e => {
+  let v = e.target.value.replace(/\D/g, '').slice(0, 4);
+  if (v.length >= 3) v = v.slice(0, 2) + ' / ' + v.slice(2);
+  e.target.value = v;
+});
+document.getElementById('cardCvc').addEventListener('input', e => {
+  e.target.value = e.target.value.replace(/\D/g, '').slice(0, 4);
+});
+
+// --- Submit payment (mocked — replace with Stripe Checkout) ---
+async function submitPayment() {
+  const btn = document.getElementById('payBtn');
+  const fields = ['cardName', 'cardNumber', 'cardExp', 'cardCvc'];
+  let ok = true;
+  fields.forEach(id => {
+    const el = document.getElementById(id);
+    const wrap = el.closest('.field');
+    if (!el.value.trim()) { wrap.classList.add('invalid'); ok = false; }
+    else { wrap.classList.remove('invalid'); }
+  });
+  if (!ok) return;
+
+  btn.disabled = true;
+  btn.innerHTML = '<span class="spinner"></span>Processing…';
+
+  /* PRODUCTION INTEGRATION POINT — replace this block:
+     const res = await fetch('/.netlify/functions/create-agreement-checkout', {
+       method: 'POST',
+       headers: { 'Content-Type': 'application/json' },
+       body: JSON.stringify({
+         family: state.family,
+         acknowledgments: state.acks,
+         signature: state.signature,
+         agreementId: state.agreementId,
+         retainerCents: TERMS.retainerAmount * 100,
+       }),
+     });
+     const { sessionId } = await res.json();
+     stripe.redirectToCheckout({ sessionId });
+  */
+
+  await new Promise(r => setTimeout(r, 1800)); // simulated
+
+  // Populate confirmation
+  document.getElementById('welcomeName').textContent = state.family.parent1.split(' ')[0];
+  document.getElementById('rId').textContent = state.agreementId;
+  document.getElementById('rName').textContent = state.family.parent1;
+  document.getElementById('rTime').textContent = new Date().toLocaleString('en-US', { dateStyle: 'medium', timeStyle: 'short' });
+  document.getElementById('rAmount').textContent = `$${TERMS.retainerAmount.toFixed(2)}`;
+  document.getElementById('rEmail').textContent = state.family.email;
+
+  showStep(6);
+  // Hide progress on confirmation
+  document.getElementById('progress').style.display = 'none';
+}
+
+// --- Init ---
+document.getElementById('sigDate').value = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+document.getElementById('retainerDisplay').textContent = `$${TERMS.retainerAmount.toFixed(2)}`;
+document.querySelector('#payBtn').textContent = `Sign & pay $${TERMS.retainerAmount}`;
+</script>
+
+</body>
+</html>
