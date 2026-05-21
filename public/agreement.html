@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Client Services Agreement â The Formula</title>
+<title>Client Services Agreement — The Formula</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -563,7 +563,7 @@
       <div class="field">
         <label for="numKids">Number of children</label>
         <select id="numKids">
-          <option value="">Selectâ¦</option>
+          <option value="">Select…</option>
           <option>1</option>
           <option>2</option>
           <option>3</option>
@@ -578,7 +578,7 @@
 
     <div class="actions">
       <span></span>
-      <button class="btn-primary" onclick="nextStep(1)">Continue â</button>
+      <button class="btn-primary" onclick="nextStep(1)">Continue →</button>
     </div>
   </div>
 
@@ -586,15 +586,15 @@
   <div class="step" data-step="2">
     <div class="eyebrow">Step 2 of 5</div>
     <h1>Please review <em>the agreement</em>.</h1>
-    <p class="lede">This is the engagement agreement between your family and The Formula. Please read carefully â your details are filled in below.</p>
+    <p class="lede">This is the engagement agreement between your family and The Formula. Please read carefully — your details are filled in below.</p>
 
     <div class="doc-card">
       <div class="doc-scroll" id="contractView"></div>
     </div>
 
     <div class="actions">
-      <button class="btn-back" onclick="prevStep(2)">â Back</button>
-      <button class="btn-primary" onclick="nextStep(2)">I've read this â</button>
+      <button class="btn-back" onclick="prevStep(2)">← Back</button>
+      <button class="btn-primary" onclick="nextStep(2)">I've read this →</button>
     </div>
   </div>
 
@@ -606,7 +606,7 @@
 
     <label class="ack" data-ack="employer">
       <input type="checkbox" />
-      <span class="ack-text"><strong>I am the employer.</strong> Once a nanny is placed, I â not The Formula â am the household employer responsible for payroll, taxes, workers' compensation insurance, and compliance with the Illinois Domestic Workers' Bill of Rights.</span>
+      <span class="ack-text"><strong>I am the employer.</strong> Once a nanny is placed, I — not The Formula — am the household employer responsible for payroll, taxes, workers' compensation insurance, and compliance with the Illinois Domestic Workers' Bill of Rights.</span>
     </label>
 
     <label class="ack" data-ack="fee">
@@ -616,7 +616,7 @@
 
     <label class="ack" data-ack="circumvention">
       <input type="checkbox" />
-      <span class="ack-text"><strong>Direct hire protection.</strong> If I (or anyone in my household) hire any candidate The Formula introduces, within 24 months â directly, through a third party, or for any role â the full placement fee is owed.</span>
+      <span class="ack-text"><strong>Direct hire protection.</strong> If I (or anyone in my household) hire any candidate The Formula introduces, within 24 months — directly, through a third party, or for any role — the full placement fee is owed.</span>
     </label>
 
     <label class="ack" data-ack="guarantee">
@@ -630,8 +630,8 @@
     </label>
 
     <div class="actions">
-      <button class="btn-back" onclick="prevStep(3)">â Back</button>
-      <button class="btn-primary" id="ackContinue" disabled onclick="nextStep(3)">Continue â</button>
+      <button class="btn-back" onclick="prevStep(3)">← Back</button>
+      <button class="btn-primary" id="ackContinue" disabled onclick="nextStep(3)">Continue →</button>
     </div>
   </div>
 
@@ -664,8 +664,8 @@
     </div>
 
     <div class="actions">
-      <button class="btn-back" onclick="prevStep(4)">â Back</button>
-      <button class="btn-primary" onclick="nextStep(4)">Continue to payment â</button>
+      <button class="btn-back" onclick="prevStep(4)">← Back</button>
+      <button class="btn-primary" onclick="nextStep(4)">Continue to payment →</button>
     </div>
   </div>
 
@@ -693,8 +693,8 @@
     <div id="payError" class="error" style="margin-bottom: 16px;"></div>
 
     <div class="actions">
-      <button class="btn-back" onclick="prevStep(5)">â Back</button>
-      <button class="btn-primary" id="payBtn" onclick="submitPayment()">Continue to secure payment â</button>
+      <button class="btn-back" onclick="prevStep(5)">← Back</button>
+      <button class="btn-primary" id="payBtn" onclick="submitPayment()">Continue to secure payment →</button>
     </div>
   </div>
 
@@ -708,11 +708,11 @@
       <p class="lede" style="margin-left: auto; margin-right: auto;">Your agreement is signed and your retainer is received. We'll be in touch within 24 hours to schedule your intake call.</p>
 
       <div class="receipt">
-        <div class="receipt-row"><span class="k">Agreement ID</span><span class="v" id="rId">â</span></div>
-        <div class="receipt-row"><span class="k">Signed by</span><span class="v" id="rName">â</span></div>
-        <div class="receipt-row"><span class="k">Signed at</span><span class="v" id="rTime">â</span></div>
+        <div class="receipt-row"><span class="k">Agreement ID</span><span class="v" id="rId">—</span></div>
+        <div class="receipt-row"><span class="k">Signed by</span><span class="v" id="rName">—</span></div>
+        <div class="receipt-row"><span class="k">Signed at</span><span class="v" id="rTime">—</span></div>
         <div class="receipt-row"><span class="k">Retainer paid</span><span class="v" id="rAmount">$500.00</span></div>
-        <div class="receipt-row"><span class="k">Confirmation sent to</span><span class="v" id="rEmail">â</span></div>
+        <div class="receipt-row"><span class="k">Confirmation sent to</span><span class="v" id="rEmail">—</span></div>
       </div>
 
       <p style="font-size: 13px; color: var(--muted); margin-top: 28px;">A copy of your signed agreement and receipt has been sent to your email. <strong style="color: var(--ink-soft);">Don't see it? Please check your spam or junk folder.</strong></p>
@@ -723,7 +723,7 @@
 
 <script>
 /* =========================================================
-   The Formula â Client Services Agreement (Digital Flow)
+   The Formula — Client Services Agreement (Digital Flow)
    ---------------------------------------------------------
    Production-wired:
    - POSTs signed agreement to /api/create-checkout-session
@@ -825,7 +825,7 @@ function renderContract() {
     <p>The placement fee is fully earned upon the earlier of (i) the candidate's acceptance of the Family's offer or (ii) the candidate's first day of work, and is payable within <span class="filled">${TERMS.paymentDueDays}</span> days. Late amounts accrue 1.5% interest per month and the Family is responsible for all collection costs and attorneys' fees.</p>
 
     <h3>3. Anti-Circumvention</h3>
-    <p>If the Family (or any household member or affiliate) hires any candidate the Agency introduces â directly, through a third party, or for any role â within <span class="filled">${TERMS.circumventionMonths}</span> months of introduction, the full placement fee is immediately due. The Family will notify the Agency of any such hire within 5 business days.</p>
+    <p>If the Family (or any household member or affiliate) hires any candidate the Agency introduces — directly, through a third party, or for any role — within <span class="filled">${TERMS.circumventionMonths}</span> months of introduction, the full placement fee is immediately due. The Family will notify the Agency of any such hire within 5 business days.</p>
 
     <h3>4. Replacement Guarantee</h3>
     <p>If a placement ends within <span class="filled">${TERMS.guaranteeDays}</span> days for reasons not caused by the Family, the Agency will conduct one replacement search at no additional placement fee. The guarantee does not apply to changes in Family circumstances, Family misconduct, or Family-initiated termination without cause. No cash refunds; replacement is the Family's sole remedy.</p>
@@ -843,9 +843,9 @@ function renderContract() {
     <p>This Agreement is governed by Illinois law. Disputes will first be addressed through good-faith negotiation, then mediation in Cook County, then exclusively in the state or federal courts of Cook County, Illinois. The prevailing party is entitled to attorneys' fees. Both parties waive trial by jury.</p>
 
     <h3>9. Confidentiality</h3>
-    <p>Candidate information is the Agency's confidential property. The Family will not share candidate names, rÃ©sumÃ©s, or contact details with anyone outside the household without written consent.</p>
+    <p>Candidate information is the Agency's confidential property. The Family will not share candidate names, résumés, or contact details with anyone outside the household without written consent.</p>
 
-    <p style="margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--line); font-size: 13px; color: var(--muted);">Full agreement terms â including survival clauses, severability, force majeure, and electronic signature provisions â are incorporated by reference and available on request. The version controlling this engagement is the long-form agreement dated and signed by both parties.</p>
+    <p style="margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--line); font-size: 13px; color: var(--muted);">Full agreement terms — including survival clauses, severability, force majeure, and electronic signature provisions — are incorporated by reference and available on request. The version controlling this engagement is the long-form agreement dated and signed by both parties.</p>
   `;
   document.getElementById('contractView').innerHTML = html;
 }
@@ -947,7 +947,7 @@ async function submitPayment() {
   errEl.textContent = '';
 
   btn.disabled = true;
-  btn.innerHTML = '<span class="spinner"></span>Preparing secure paymentâ¦';
+  btn.innerHTML = '<span class="spinner"></span>Preparing secure payment…';
 
   try {
     const res = await fetch('/api/create-checkout-session', {
@@ -980,14 +980,14 @@ async function submitPayment() {
         agreementId: state.agreementId,
         family: state.family,
       }));
-    } catch (_) { /* sessionStorage unavailable â non-fatal */ }
+    } catch (_) { /* sessionStorage unavailable — non-fatal */ }
 
     // Redirect to Stripe's hosted checkout
     window.location.href = url;
   } catch (err) {
     console.error('submitPayment error:', err);
     btn.disabled = false;
-    btn.textContent = `Continue to secure payment â`;
+    btn.textContent = `Continue to secure payment →`;
     errEl.textContent = `We couldn't start your payment: ${err.message}. Please try again, or email reach.theformula@gmail.com if this keeps happening.`;
     errEl.classList.add('show');
   }
@@ -998,7 +998,7 @@ function handleStripeReturn() {
   const params = new URLSearchParams(window.location.search);
 
   if (params.get('canceled') === 'true') {
-    // Family backed out at Stripe â return them to the payment step
+    // Family backed out at Stripe — return them to the payment step
     showStep(5);
     const errEl = document.getElementById('payError');
     if (errEl) {
@@ -1011,7 +1011,7 @@ function handleStripeReturn() {
   }
 
   if (params.get('success') === 'true') {
-    // Family completed payment â show confirmation
+    // Family completed payment — show confirmation
     let saved = null;
     try {
       const raw = sessionStorage.getItem('tf_pending_agreement');
@@ -1019,9 +1019,9 @@ function handleStripeReturn() {
     } catch (_) {}
 
     const firstName = saved?.family?.parent1?.split(' ')[0] || 'friend';
-    const fullName = saved?.family?.parent1 || 'â';
-    const email = saved?.family?.email || 'â';
-    const agreementId = saved?.agreementId || 'â';
+    const fullName = saved?.family?.parent1 || '—';
+    const email = saved?.family?.email || '—';
+    const agreementId = saved?.agreementId || '—';
 
     document.getElementById('welcomeName').textContent = firstName;
     document.getElementById('rId').textContent = agreementId;
